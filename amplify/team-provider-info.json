@@ -1,0 +1,28 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-amplify1262221d27eb4-staging-33538-authRole",
+      "UnauthRoleArn": "arn:aws:iam::510264694365:role/amplify-amplify1262221d27eb4-staging-33538-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::510264694365:role/amplify-amplify1262221d27eb4-staging-33538-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-amplify1262221d27eb4-staging-33538-deployment",
+      "UnauthRoleName": "amplify-amplify1262221d27eb4-staging-33538-unauthRole",
+      "StackName": "amplify-amplify1262221d27eb4-staging-33538",
+      "StackId": "arn:aws:cloudformation:us-east-1:510264694365:stack/amplify-amplify1262221d27eb4-staging-33538/5028d370-2a70-11ed-9438-12284b6b5191",
+      "AmplifyAppId": "d3k5qli8oc3p7d",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify1262221d27eb4-staging-33538-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "testapp": {}
+      },
+      "function": {
+        "testappPostConfirmation": {
+          "GROUP": "drivers",
+          "deploymentBucketName": "amplify-amplify1262221d27eb4-staging-33538-deployment",
+          "s3Key": "amplify-builds/testappPostConfirmation-67796a4b47794b783464-build.zip"
+        }
+      }
+    }
+  }
+}
