@@ -1,8 +1,6 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "testapp",
-    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "testap576211e4",
     "userPoolName": "testapp",
     "autoVerifiedAttributes": [
@@ -35,13 +33,12 @@
     "userpoolClientSetAttributes": false,
     "sharedId": "576211e4",
     "resourceName": "testapp",
-    "authSelections": "identityPoolAndUserPool",
+    "authSelections": "userPoolOnly",
     "useDefault": "manual",
-    "thirdPartyAuth": false,
     "usernameAttributes": [
       "email"
     ],
-    "userPoolGroups": true,
+    "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {
       "PostConfirmation": [
@@ -55,6 +52,38 @@
     ],
     "serviceName": "Cognito",
     "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useEnabledMfas": true,
+    "authRoleArn": {
+      "Fn::GetAtt": [
+        "AuthRole",
+        "Arn"
+      ]
+    },
+    "unauthRoleArn": {
+      "Fn::GetAtt": [
+        "UnauthRole",
+        "Arn"
+      ]
+    },
+    "breakCircularDependency": true,
+    "dependsOn": [
+      {
+        "category": "function",
+        "resourceName": "testappPostConfirmation",
+        "triggerProvider": "Cognito",
+        "attributes": [
+          "Arn",
+          "Name"
+        ]
+      }
+    ],
+    "permissions": [
+      "{\n  \"policyName\": \"AddToGroupCognito\",\n  \"trigger\": \"PostConfirmation\",\n  \"effect\": \"Allow\",\n  \"actions\": [\n    \"cognito-idp:AdminAddUserToGroup\",\n    \"cognito-idp:GetGroup\",\n    \"cognito-idp:CreateGroup\"\n  ],\n  \"resource\": {\n    \"paramType\": \"!GetAtt\",\n    \"keys\": [\n      \"UserPool\",\n      \"Arn\"\n    ]\n  }\n}"
+    ],
+    "authTriggerConnections": "[\n  {\n    \"triggerType\": \"PostConfirmation\",\n    \"lambdaFunctionName\": \"testappPostConfirmation\"\n  }\n]",
+    "authProviders": [],
+    "parentStack": {
+      "Ref": "AWS::StackId"
+    }
   }
 }

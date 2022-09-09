@@ -1,0 +1,10 @@
+{
+  "resourceName": "testAppBucket",
+  "policyUUID": "972daf0d",
+  "bucketName": "testapp8950376b35e74071857f68fe86df5078",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE"
+  ]
+}

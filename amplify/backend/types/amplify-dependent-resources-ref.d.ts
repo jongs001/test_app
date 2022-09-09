@@ -21,5 +21,18 @@ export type AmplifyDependentResourcesAttributes = {
             "LambdaExecutionRole": "string",
             "Region": "string"
         }
+    },
+    "api": {
+        "testapp": {
+            "GraphQLAPIKeyOutput": "string",
+            "GraphQLAPIIdOutput": "string",
+            "GraphQLAPIEndpointOutput": "string"
+        }
+    },
+    "storage": {
+        "testAppBucket": {
+            "BucketName": "string",
+            "Region": "string"
+        }
     }
 }
